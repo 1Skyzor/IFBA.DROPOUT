@@ -1,60 +1,69 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php
+session_start();
+?>
+<!doctype html>
+<html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Evasão</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="#" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Login - DROPOUT IFBA</title>
+
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">        
+        
+       <link rel="stylesheet" type="text/css" href="fuentes/iconic/css/material-design-iconic-font.min.css">
+        
     </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Nome Sistema</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile mx-auto mb-2 style = border-radius: 10px" style = "border-radius: 20px" src="assets/img/profile.jpg" alt="..." /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">menu 1</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">menu 2</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">menu 3</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">menu 4</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">menu 5</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- Login-->
-            <section class="resume-section" id="login">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Nome
-                        <span class="text-primary">Sistema</span>
-                    </h1>
-                    <br/><br/>
-                    <p class="lead mb-5">Descrição</p>
+    
+    <body>
+     
+      <div class="container-login">
+        <div class="wrap-login">
+            <form class="login-form validate-form" id="formLogin" action="" method="post">
+                <span class="login-form-title">LOGIN</span>
+                
+                <div class="wrap-input100" data-validate = "Usuario incorrecto">
+                    <input class="input100" type="text" id="usuario" name="usuario" placeholder="Usuário">
+                    <span class="focus-efecto"></span>
                 </div>
-            </section>
-            <hr class="m-0" />
-            </section>
+                
+                <div class="wrap-input100" data-validate="Password incorrecto">
+                    <input class="input100" type="password" id="senha" name="senha" placeholder="Senha">
+                    <input type="hidden"  display = "none" id="passa_status" value='<?php echo $_SESSION['s_status'] ?>'>
+                    <input type="hidden"  display = "none" id="passa_tipo" value='<?php echo $_SESSION['s_tipo'] ?>'>
+                    <input type="hidden"  display = "none" id="passa_senha" value='<?php echo $_SESSION['s_senha'] ?>'>
+                    <span class="focus-efecto"></span>
+                </div>            
+                <div class="container-login-form-btn">
+                    <div class="wrap-login-form-btn">
+                        <div class="login-form-bgbtn"></div>
+                        <button type="submit" name="submit" class="login-form-btn">Entrar</button>    
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <div class="text-center">
+                 <a class="small" href="forgot-password.php">Esqueceu sua senha?</a>
+            </div>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+
+        <!-- Footer -->
+        
+    </div>     
+    <div class="copyright text-center my-auto">
+            <span> Copyright <?php echo date('Y'); ?>
+             &copy; DROPOUT IFBA - Desenvolvido por Aviário Dev      - Todos os direitos reservados. </span>
+            
+          </div>
+        
+     <script src="jquery/jquery-3.3.1.min.js"></script>    
+     <script src="bootstrap/js/bootstrap.min.js"></script>    
+     <script src="popper/popper.min.js"></script>    
+        
+     <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>    
+     <script src="codigo.js"></script>    
     </body>
 </html>
