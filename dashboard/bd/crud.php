@@ -27,7 +27,7 @@ switch($opcao){
         break;
         
     case 2: //Atualizar
-        
+        /* 
         $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha ' ";
         $resultado = $conexao->prepare($consulta);
         $resultado->execute();
@@ -41,7 +41,7 @@ switch($opcao){
             $resultado = $conexao->prepare($consulta);
             $resultado->execute(); 
             
-        }      
+        }      */ 
         
         $consulta = "SELECT id, nome, usuario, email, tipo, status, senha FROM usuarios WHERE id='$id' ";       
         $resultado = $conexao->prepare($consulta);
