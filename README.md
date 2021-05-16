@@ -1,2 +1,2 @@
 # IFBA_EngSoft
- Sistema de evasão - Discilina Engenharia de Software IFBA
+ Sistema de evasão - Disciplina Engenharia de Software IFBA
