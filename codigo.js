@@ -26,7 +26,7 @@ $('#formLogin').submit(function(e){
                }
                else{
                 var status = document.getElementById('passa_status').value;
-                var respuesta = confirm("teste "+status);
+                /* var respuesta = confirm("teste "+status); */
                 if(status == "Inativo"){
                     Swal.fire({
                         type:'warning',
@@ -35,7 +35,7 @@ $('#formLogin').submit(function(e){
                     return false;   
                  }else{
                     var tipo = document.getElementById('passa_tipo').value;
-                    var respuesta = confirm("teste "+tipo);
+                   /*  var respuesta = confirm("teste "+tipo); */
                    
                     if(tipo == 'Admin'){
                         Swal.fire({

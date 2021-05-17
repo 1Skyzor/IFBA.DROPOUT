@@ -39,7 +39,7 @@
                                     <th>Email</th>
                                     <th>Tipo</th> 
                                     <th>Status</th> 
-                                    <th style="display:none;"  >Senha</th>
+                                   <!--  <th style="display:none;"  >Senha</th> -->
                                     <th>Acões</th>
                                     
                                 </tr>
@@ -57,7 +57,7 @@
                                     <td><?php echo $dat['email'] ?></td> 
                                     <td><?php echo $dat['tipo'] ?></td>
                                     <td><?php echo $dat['status'] ?></td> 
-                                    <td style="display:none;" ><?php echo $dat['senha'] ?></td>   
+                                   <!--  <td style="display:none;" ><?php echo $dat['senha'] ?></td>    -->
                                     <td></td>
                                 </tr>
                                 <?php
