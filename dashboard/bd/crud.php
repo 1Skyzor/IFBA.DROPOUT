@@ -7,7 +7,7 @@ $conexao = $objeto->Conectar();
 $nome = (isset($_POST['nome'])) ? $_POST['nome'] : '';
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
 $senha = (isset($_POST['senha'])) ? $_POST['senha'] : '';
-$senhaE = (isset($_POST['senha'])) ? md5($_POST['senha']) : ''; */
+$senha = (isset($_POST['senha'])) ? md5($_POST['senha']) : ''; 
 $email = (isset($_POST['email'])) ? $_POST['email'] : '';
 $tipo = (isset($_POST['tipo'])) ? $_POST['tipo'] : '';
 $status = (isset($_POST['status'])) ? $_POST['status'] : '';
@@ -16,7 +16,7 @@ $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
 switch($opcao){
     case 1: //Cadastrar
-        $consulta = "INSERT INTO usuarios (nome, usuario, senha, email, tipo, status) VALUES('$nome', '$usuario', '$$senhaE','$email', '$tipo', '$status') ";		
+        $consulta = "INSERT INTO usuarios (nome, usuario, senha, email, tipo, status) VALUES('$nome', '$usuario', '$$senha','$email', '$tipo', '$status') ";		
         $resultado = $conexao->prepare($consulta);
         $resultado->execute(); 
 
@@ -27,8 +27,8 @@ switch($opcao){
         break;
         
     case 2: //Atualizar
-        /* 
-        $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha ' ";
+       
+        $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha' ";
         $resultado = $conexao->prepare($consulta);
         $resultado->execute();
 
@@ -41,7 +41,7 @@ switch($opcao){
             $resultado = $conexao->prepare($consulta);
             $resultado->execute(); 
             
-        }      */ 
+        }      
         
         $consulta = "SELECT id, nome, usuario, email, tipo, status, senha FROM usuarios WHERE id='$id' ";       
         $resultado = $conexao->prepare($consulta);
