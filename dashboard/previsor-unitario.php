@@ -6,7 +6,12 @@
             <form id="formPrevisorUnitario">    
                 <div class="modal-body">
                     <div class="form-group">
-                    
+                    <label for="cursos" >Selecione o curso:</label>
+                    <select name="cursos" id="cursos-unitario">
+                        <option value="integrado">Integrado</option>
+                        <option value="subsequente">Subsequente</option>
+                        <option value="BSI">BSI</option>
+                    </select><br>
                     <label for="ingressante" class="col-form-label"><b> É ingressante no período? </b> </label><br>
                     <input type="radio" id="sim-ingressante" name="ingressante" value="Sim">
                     <label for="sim-ingressante">Sim</label><br>
@@ -45,10 +50,10 @@
 
                     <label for="ingressante" class="col-form-label"><b>Idade do aluno</b></label><br>
                     <input type="number" id="idade-aluno" name="idade-aluno" ></label><br>
-
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="btnPrevisorUnitario" class="btn btn-danger">Prever</button>
+                    <button type="submit" id="btnPrevisorUnitario" class="btn btn-success">Prever</button>
                 </div>
             </form>    
 
