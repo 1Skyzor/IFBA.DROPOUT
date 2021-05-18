@@ -1,7 +1,8 @@
 $('#formLogin').submit(function(e){
+    var dados=$(this).serialize();
    e.preventDefault();
    var usuario = $.trim($("#usuario").val());    
-   var senha =$.trim($("#senha").val());  
+   var senha = $.trim($("#senha").val());  
     
    if(usuario.length == "" || senha == ""){
       Swal.fire({
@@ -14,7 +15,7 @@ $('#formLogin').submit(function(e){
            url:"bd/login.php",
            type:"POST",
            datatype: "json",
-           data: {usuario:usuario, senha:senha }, 
+           data: {usuario:usuario, senha:senha,status }, 
            success:function(data){               
                if(data == "null"){
                    
@@ -25,8 +26,35 @@ $('#formLogin').submit(function(e){
 
                }
                else{
-                var status = document.getElementById('passa_status').value;
-                /* var respuesta = confirm("teste "+status); */
+
+                
+               
+                $.ajax({
+                    
+                        url:"bd/login.php",
+                        type:"POST",
+                        datatype: "json",
+                        data: dados,
+                        
+                    success: function(response){
+                        $('.resultadoForm table tbody').empty();
+                        $.each(response,function(key,value){
+                            
+                            if(value.status == "Ativo"){
+                                
+                                Swal.fire({
+                                    type:'error',
+                                    title:'ativo',
+                                });
+            
+                            }   
+                        });
+                    }
+                                                     
+                } );
+/* 
+                status = document.getElementById('passa_status').value; */
+             
                 if(status == "Inativo"){
                     Swal.fire({
                         type:'warning',
@@ -34,10 +62,10 @@ $('#formLogin').submit(function(e){
                     });
                     return false;   
                  }else{
-                    var tipo = document.getElementById('passa_tipo').value;
-                   /*  var respuesta = confirm("teste "+tipo); */
+                    tipo = document.getElementById('passa_tipo').value;
+                    var respuesta = confirm("teste "+tipo);
                    
-                    if(tipo == 'Admin'){
+                    if(tipo == "Admin"){
                         Swal.fire({
                             type:'success',
                             title:'Bem-vindo(a) '+usuario+'!',
@@ -51,6 +79,7 @@ $('#formLogin').submit(function(e){
                             })
 
                         } else{  
+                            var respuesta = confirm("teste 2 "+tipo);
                             Swal.fire({
                             type:'warning',
                             title:'Módulo Usuários Simples Ainda Não Está Pronto!',

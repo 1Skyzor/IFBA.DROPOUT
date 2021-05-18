@@ -45,7 +45,7 @@ $(document).on("click", ".btnEditar", function(){
     usuario = fila.find('td:eq(2)').text();
     email = fila.find('td:eq(3)').text();
     tipo = fila.find('td:eq(4)').text();
-    status = fila.find('td:eq(5)').text();
+    status =  fila.find('td:eq(5)').text();
     //senha = fila.find('td:eq(6)').text();
     
     //var senha = document.getElementById('passa_senha').value;
@@ -56,13 +56,20 @@ $(document).on("click", ".btnEditar", function(){
    /*  $("#senha").val(senha); */
     $("#conf-senha").val(senha);
     $("#email").val(email);
+  
+    var adm = 'Admin';
     
-    /* var respuesta = confirm("testeeeeee "+senha); */
-    if (tipo == 'Admin') {
-       
+    var respuesta = confirm("testeeeeee9 "+(tipo==adm));
+    if (true ) {
+        var respuesta = confirm("testeeeeee "+tipo);
         document.getElementById("cb-adm").checked = true;
+     }else{
+        var respuesta = confirm("testeeeeee "+tipo);
+        document.getElementById("cb-adm").checked = false;
      }
+
      if (status == 'Ativo') {
+
         document.getElementById("cb-ativo").checked = true;
      }
     
@@ -157,7 +164,7 @@ $("#formUsuarios").submit(function(e){
                 url: "bd/crud.php",
                 type: "POST",
                 dataType: "json",
-                data: {nome:nome, usuario:usuario, email:email, tipo:tipo, status:status, id:id, opcao:opcao},
+                data: {nome:nome, usuario:usuario,senha:senha, email:email, tipo:tipo, status:status, id:id, opcao:opcao},
                 success: function(data){  
                     console.log(data);
                     id = data[0].id;            
@@ -166,11 +173,11 @@ $("#formUsuarios").submit(function(e){
                     email = data[0].email;
                     tipo = data[0].tipo;            
                     status = data[0].status;
-                    /* senha = data[0].senha; */
+                    senha = data[0].senha; 
 
              
-                    if(opcao == 1){tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status]).draw();}
-                    else{tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status]).draw();}
+                    if(opcao == 1){tabelaUsuarios.row.add([id,nome,usuario,senha,email,tipo,status]).draw();}
+                    else{tabelaUsuarios.row(fila).data([id,nome,usuario,senha,email,tipo,status]).draw();}
                     
                 }        
             });
