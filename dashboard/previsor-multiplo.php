@@ -1,6 +1,24 @@
 <?php require_once "vistas/parte_superior.php"?>
-
 <!--INICIO del cont principal-->
+
+<head>
+    <style type = "text/css">
+        #tabela-previsao{
+            border: none;
+            width: 1080px;
+            height: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <script>
+        function openModal(){
+            $("#modalPrevisaoMultipla").modal("show"); 
+        }   
+    </script>
+</head>
+
 <div class="container">
     <h1>Previsor de evasões</h1>   
     <br><br>
@@ -14,56 +32,18 @@
         <br><br>
         <label>Selecionar Planilha:</label><br>
         <input type="file" class="btn btn-success" data-dismiss="modal"></input>
-        <div class="modal-footer">
-            <button type="submit" id="btnPrevisorMultiplo" class="btn btn-success">Prever</button>
+        <button type="submit" id="btnPrevisorMultiplo" class="btn btn-success" onclick = openModal()>Prever</button>
+    </form> 
+<br><br>
+
+<div class="modal fade" id="modalPrevisaoMultipla" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                <iframe id = "tabela-previsao" src = "../tabela-previsao.php"></iframe>
         </div>
-    </form>    
-    <div class="row">
-                    <div class="col-lg-12">
-                        <div class="table-responsive">        
-                            <table id="tabelaUsuarios" class="table table-striped table-bordered table-condensed" style="width:100%">
-                            <thead class="text-center">
-                                <tr>
-                                    <th>É ingressante no período?</th>
-                                    <th>É cotista?</th>
-                                    <th>Etnia</th>                                 
-                                    <th>Sexo</th>
-                                    <th>É natural do município?</th> 
-                                    <th>Idade</th> 
-                                   <!--  <th style="display:none;"  >Senha</th> -->
-                                    <th><b>Corre risco de evasão?</b></th>
-                                    
-                                </tr>
-                                </tr>
-                            </thead>
-                            <!-- 
-                            <tbody>
-                                <?php                            
-                                foreach($data as $dat) { 
-                                 
-                                ?>
-                                <tr>
-                                    <td><?php echo $dat['id'] ?></td>
-                                    <td><?php echo $dat['nome'] ?></td>
-                                    <td><?php echo $dat['usuario'] ?></td>
-                                    <td><?php echo $dat['email'] ?></td> 
-                                    <td><?php echo $dat['tipo'] ?></td>
-                                    <td><?php echo $dat['status'] ?></td> 
-                                   <!--  <td style="display:none;" ><?php echo $dat['senha'] ?></td>    -->
-                                    <td></td>
-                                </tr>
-                                <?php
-                                    }
-                                ?>                                
-                            </tbody>    
-                            -->
-                        </table>                    
-                        </div>
-                    </div>
-            </div>  
-            <div class="modal-footer">
-            <button type="submit" id="btnExportar" class="btn btn-danger">Exportar dados</button>
-        </div>
-        </div>  
+    </div>
+</div>
+
+ 
 <!--FIN del cont principal-->
 <?php require_once "vistas/parte_inferior.php"?>
