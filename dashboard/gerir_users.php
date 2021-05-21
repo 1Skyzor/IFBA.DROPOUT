@@ -1,4 +1,14 @@
-<?php require_once "vistas/parte_superior.php"?>
+<?php 
+ini_set('display_errors', 0 );
+error_reporting(0);
+session_start();
+if($_SESSION["s_tipo"] != "Admin"){
+    header('Location: index.php');
+	exit();
+}
+
+require_once "vistas/parte_superior.php"
+?>
 
 <!--INICIO del cont principal-->
 <div class="container">
