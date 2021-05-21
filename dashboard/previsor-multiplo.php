@@ -31,7 +31,9 @@
             $pasta = "../data/";
             $temp = $_FILES['arquivo']['tmp_name'];
             $novo_nome = uniqid().".csv";
-            
+
+            $_SESSION['nome_csv'] = $novo_nome;
+
             if(move_uploaded_file($temp, $pasta.$novo_nome)):
 ?>
         <script> document.getElementById("btnPrevisoes").style.display = "inline"; </script>
@@ -41,12 +43,15 @@
     endif;
 ?>
 
+<div id = "centro-tabela">
 <div class="modal fade" id="modalPrevisaoMultipla" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
                 <iframe id = "tabela-previsao" src = "../tabela-previsao.php"></iframe>
         </div>
     </div>
+</div>
+<form id="formUsuarios"></div>
 </div>
 
 </body>

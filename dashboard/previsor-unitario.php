@@ -1,6 +1,7 @@
 <?php require_once "vistas/parte_superior.php"?>
 
 <!--INICIO del cont principal-->
+<body>
 <div class="container">
     <h1>Previsor de evasões</h1>   
             <form id="formPrevisorUnitario">    
@@ -56,6 +57,8 @@
                     <button type="submit" id="btnPrevisorUnitario" class="btn btn-success">Prever</button>
                 </div>
             </form>    
-
+ </div>
+</body>
 <!--FIN del cont principal-->
+
 <?php require_once "vistas/parte_inferior.php"?>

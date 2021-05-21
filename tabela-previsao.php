@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php
+    session_start();
+?>
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
@@ -37,7 +39,7 @@
         }
 
         CsvToHtmlTable.init({
-            csv_path: "data/Health Clinics in Chicago.csv",
+            csv_path: "<?php echo "data/".$_SESSION['nome_csv']?>",
             element: "table-container",
             allow_download: true,
             csv_options: {
