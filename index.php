@@ -56,8 +56,7 @@ session_start();
     <div class="copyright text-center my-auto">
             <span> Copyright <?php echo date('Y'); ?>
              &copy; DROPOUT IFBA - Desenvolvido por Aviário Dev      - Todos os direitos reservados. </span>
-            
-          </div>
+    </div>
         
      <script src="jquery/jquery-3.3.1.min.js"></script>    
      <script src="bootstrap/js/bootstrap.min.js"></script>    

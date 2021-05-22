@@ -1,3 +1,4 @@
+<?php include_once "bd/conexao.php"; ?>
 <!doctype html>
 <html>
     <head>
@@ -5,7 +6,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Login con  PHP - Bootstrap 4</title>
+        <title>Redefinir senha</title>
 
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="estilos.css">
@@ -23,7 +24,7 @@
                 <span class="login-form-title">Redefinir Senha</span>
                 
                 <div class="wrap-input100" data-validate = "Usuario incorrecto">
-                    <input class="input100" type="text" id="usuario" name="usuario" placeholder="Usuário">
+                    <input class="input100" type="text" id="email" name="email" placeholder="Email">
                     <span class="focus-efecto"></span>
                 </div>
                 
@@ -34,7 +35,37 @@
                     </div>
                 </div>
             </form>
-    </div>     
+    </div>   
+    
+    <?php
+        function gerarToken($email){
+            $objeto = new Conexao();
+            $conexao = $objeto->Conectar();
+
+            $consulta = $conexao->prepare("SELECT * FROM usuarios WHERE usuarios.email = :email");
+            $consulta->bindValue(":email", $email);
+            $consulta->execute();
+            $data=$consulta->fetch(PDO::FETCH_ASSOC);
+
+            if($data){
+                $token = sha1($data['email'].$data['senha']);
+                return $token;
+            }
+        }
+        
+
+        if(isset($_POST['email'])){
+            $email = $_POST['email'];
+            $token = gerarToken($email);
+
+            if($token){
+                echo '<a href="http://localhost/forgot-password.php?token='.$token.'">http://localhost/alterar-senha.php?token='.$token.'</a>';
+            }else{
+                echo "<script>alert('Usuário não encontrado');</script>";
+            }
+        }
+        
+    ?>
         
         
      <script src="jquery/jquery-3.3.1.min.js"></script>    
