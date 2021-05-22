@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     tabelaUsuarios = $("#tabelaUsuarios").DataTable({
        "columnDefs":[{
@@ -83,13 +84,31 @@ $(document).on("click", ".btnEditar", function(){
     
 });
 
+/* $(document).on("click", ".btnDeletar", function(){
+    fila = $(this);           
+    user_id = parseInt($(this).closest('tr').find('td:eq(0)').text()) ;		
+    opcion = 3; //eliminar        
+    var respuesta = confirm("¿Está seguro de borrar el registro "+user_id+"?");                
+    if (respuesta) {            
+        $.ajax({
+          url: "bd/crud.php",
+          type: "POST",
+          datatype:"json",    
+          data:  {opcion:opcion, user_id:user_id},    
+          success: function() {
+            tabelaUsuarios.row(fila.parents('tr')).remove().draw();                  
+           }
+        });	
+    }
+ });
+ */
 //Botão Deletar
 $(document).on("click", ".btnDeletar", function(){    
     fila = $(this);
     id = $(this).closest("tr").find('td:eq(0)').text();
-    user = fila.find('td:eq(1)').text();
-    opcao = 3 //Deletar    
-      
+    user = $(this).closest("tr").find('td:eq(1)').text();
+    opcao = 3 //Deletar 
+    var respuesta =  false;   
     Swal.fire({
         title: 'Tem certeza?',
         text: "Realmente deseja deletar o usuário \""+user+"\" ?",
@@ -100,24 +119,23 @@ $(document).on("click", ".btnDeletar", function(){
         confirmButtonText: 'Deletar',
         cancelButtonText: 'Cancelar'
         
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deletado!',
-            'O usuário foi deletado.',
-            'success'
-          )
-        }
-        $.ajax({
-            url: "bd/crud.php",
-            type: "POST",
-            dataType: "json",
-            data: {opcao:opcao, id:id},
-            success: function(){
-                tabelaUsuarios.row(fila.parents('tr')).remove().draw();
-            }
-        });
-      }) 
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: "bd/crud.php",
+                type: "POST",
+                datatype:"json",    
+                data:  {opcao:opcao, id:id},    
+                success: function() {
+                  tabelaUsuarios.row(fila.parents('tr')).remove().draw(); 
+                  Swal.fire('Deletado!','O usuário foi deletado.','success')                   
+                 }
+              });	
+            
+                       
+        }  
+    }); 
+    
       
 });
 
@@ -176,8 +194,8 @@ $("#formUsuarios").submit(function(e){
                     senha = data[0].senha; 
 
              
-                    if(opcao == 1){tabelaUsuarios.row.add([id,nome,usuario,senha,email,tipo,status]).draw();}
-                    else{tabelaUsuarios.row(fila).data([id,nome,usuario,senha,email,tipo,status]).draw();}
+                    if(opcao == 1){tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status]).draw();}
+                    else{tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status]).draw();}
                     
                 }        
             });

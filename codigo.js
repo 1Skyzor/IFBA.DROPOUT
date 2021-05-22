@@ -1,24 +1,32 @@
-$('#formLogin').submit(function(e){
-    var dados=$(this).serialize();
+$(document).on("submit", ".formLogin", function(e){
+ 
    e.preventDefault();
-   var usuario = $.trim($("#usuario").val());    
-   var senha = $.trim($("#senha").val());  
-    
-   if(usuario.length == "" || senha == ""){
+   var $form = $(this);
+   var data_form = {
+   usuario : $("input[id='usuario']",$form).val(),    
+   senha : $("input[id='senha']", $form).val() 
+   } 
+   //confirm("USER "+data_form.usuario);  
+   if(data_form.usuario.length == "" || data_form.senha == ""){
       Swal.fire({
           type:'warning',
           title:'O usuário e a senha devem ser informados.',
       });
       return false; 
     }else{
+        var url_php = 'bd/login.php';
         $.ajax({
-           url:"bd/login.php",
+           url:url_php,
            type:"POST",
            datatype: "json",
-           data: {usuario:usuario, senha:senha,status }, 
-           success:function(data){               
-               if(data == "null"){
-                   
+           data: data_form, 
+           async: true,
+           
+        })
+        .done(function ajaxDone(res){   
+              //confirm("USER "+res.usuario);  
+              console.log(res.usuario);      
+               if(res.status == undefined){ 
                    Swal.fire({
                        type:'error',
                        title:'Usuário e/ou senha inválido(s)',
@@ -26,49 +34,20 @@ $('#formLogin').submit(function(e){
 
                }
                else{
-
-                
-               
-                $.ajax({
-                    
-                        url:"bd/login.php",
-                        type:"POST",
-                        datatype: "json",
-                        data: dados,
-                        
-                    success: function(response){
-                        $('.resultadoForm table tbody').empty();
-                        $.each(response,function(key,value){
-                            
-                            if(value.status == "Ativo"){
-                                
-                                Swal.fire({
-                                    type:'error',
-                                    title:'ativo',
-                                });
-            
-                            }   
-                        });
-                    }
-                                                     
-                } );
-/* 
-                status = document.getElementById('passa_status').value; */
-             
-                if(status == "Inativo"){
+                //confirm("STATUS"+res.status);            
+                if(res.status == "Inativo"){
                     Swal.fire({
                         type:'warning',
                         title:'Sua conta está desativada, recomendamos que entre em contato com a admistratação.',
                     });
                     return false;   
                  }else{
-                    tipo = document.getElementById('passa_tipo').value;
-                    var respuesta = confirm("teste "+tipo);
+                  //confirm("TIPO "+res.tipo);
                    
-                    if(tipo == "Admin"){
+                    if(res.tipo == "Admin"){
                         Swal.fire({
                             type:'success',
-                            title:'Bem-vindo(a) '+usuario+'!',
+                            title:'Bem-vindo(a) '+res.usuario+'!',
                             confirmButtonColor:'#3085d6',
                             confirmButtonText:'Entrar'
                             }).then((result) => {
@@ -79,7 +58,7 @@ $('#formLogin').submit(function(e){
                             })
 
                         } else{  
-                            var respuesta = confirm("teste 2 "+tipo);
+                            //confirm("TIPO "+res.tipo);
                             Swal.fire({
                             type:'warning',
                             title:'Módulo Usuários Simples Ainda Não Está Pronto!',
@@ -94,7 +73,13 @@ $('#formLogin').submit(function(e){
                         }
                   }
                 }
-           }    
-        });
+               
+        }) /* .fail(function ajaxError(e){
+            console.log(e);
+        })
+        .always(function ajaxSiempre(){
+            console.log('Final de la llamada ajax.');
+        })
+        return false; */
     }     
 });

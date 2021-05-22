@@ -22,7 +22,7 @@ session_start();
      
       <div class="container-login">
         <div class="wrap-login">
-            <form class="login-form validate-form" id="formLogin" action="" method="post">
+            <form class="formLogin" id="formLogin" action="" method="POST">
                 <span class="login-form-title">LOGIN</span>
                 
                 <div class="wrap-input100" data-validate = "Usuario incorrecto">
@@ -32,8 +32,8 @@ session_start();
                 
                 <div class="wrap-input100" data-validate="Password incorrecto">
                     <input class="input100" type="password" id="senha" name="senha" placeholder="Senha">
-                    <input type="hidden"  display = "none" id="passa_status" value='<?php echo $_SESSION['s_status'] ?>'>
-                    <input type="hidden"  display = "none" id="passa_tipo" value='<?php echo $_SESSION['s_tipo'] ?>'>
+                    <input type="hidden"   id="passa_status" value='<?php echo $_SESSION['s_status']; ?>'>
+                    <input type="hidden"  id="passa_tipo" value='<?php echo $_SESSION['s_tipo']; ?>'>
 
                     <span class="focus-efecto"></span>
                 </div>            
