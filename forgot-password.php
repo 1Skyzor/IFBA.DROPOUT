@@ -48,7 +48,7 @@
             $data=$consulta->fetch(PDO::FETCH_ASSOC);
 
             if($data){
-                $token = sha1($data['email'].$data['senha']);
+                $token = md5($data['email'].$data['senha']);
                 return $token;
             }
         }
@@ -59,7 +59,7 @@
             $token = gerarToken($email);
 
             if($token){
-                echo '<a href="http://localhost/forgot-password.php?token='.$token.'">http://localhost/alterar-senha.php?token='.$token.'</a>';
+                echo '<a href="http://localhost/change-password.php?token='.$token.'">http://127.0.0.1/change-password.php?token='.$token.'</a>';
             }else{
                 echo "<script>alert('Usuário não encontrado');</script>";
             }
