@@ -49,5 +49,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $conexao=null;
     }else{
 
-    exit("Fuera de aquí");
+    exit("OPS!");
 }

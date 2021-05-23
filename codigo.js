@@ -14,9 +14,9 @@ $(document).on("submit", ".formLogin", function(e){
       });
       return false; 
     }else{
-        var url_php = 'bd/login.php';
+        //var url_php = 'bd/login.php';
         $.ajax({
-           url:url_php,
+           url:'bd/login.php',
            type:"POST",
            datatype: "json",
            data: data_form, 
@@ -25,7 +25,7 @@ $(document).on("submit", ".formLogin", function(e){
         })
         .done(function ajaxDone(res){   
               //confirm("USER "+res.usuario);  
-              console.log(res.usuario);      
+                    
                if(res.status == undefined){ 
                    Swal.fire({
                        type:'error',

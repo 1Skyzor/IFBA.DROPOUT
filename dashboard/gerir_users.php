@@ -49,7 +49,7 @@ require_once "vistas/parte_superior.php"
                                     <th>Email</th>
                                     <th>Tipo</th> 
                                     <th>Status</th> 
-                                   <!--  <th style="display:none;"  >Senha</th> -->
+                                    <th>Senha</th>
                                     <th>Acões</th>
                                     
                                 </tr>
@@ -67,7 +67,7 @@ require_once "vistas/parte_superior.php"
                                     <td><?php echo $dat['email'] ?></td> 
                                     <td><?php echo $dat['tipo'] ?></td>
                                     <td><?php echo $dat['status'] ?></td> 
-                                   <!--  <td style="display:none;" ><?php echo $dat['senha'] ?></td>    -->
+                                    <td><?php echo $dat['senha'] ?></td>   
                                     <td></td>
                                 </tr>
                                 <?php
@@ -89,7 +89,7 @@ require_once "vistas/parte_superior.php"
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-            <form id="formUsuarios">    
+            <form id="formUsuarios" class ="formUsuarios" method="POST">    
                 <div class="modal-body">
                     <div class="form-group">
                     <label for="nome" class="col-form-label">Nome:</label>
@@ -121,7 +121,7 @@ require_once "vistas/parte_superior.php"
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="btnSalvar" class="btn btn-success">Salvar</button>
+                    <button type="submit" name="submit" id="btnSalvar" class="btn btn-success">Salvar</button>
                 </div>
             </form>    
             </div>
