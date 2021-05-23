@@ -1,4 +1,10 @@
-<?php include_once "bd/conexao.php"; ?>
+<?php 
+    include_once "bd/conexao.php"; 
+    include("mailer/class.phpmailer.php");
+    include("mailer/class.smtp.php");
+    include("mailer/class.pop3.php");
+    session_start();
+?>
 <!doctype html>
 <html>
     <head>
@@ -49,22 +55,58 @@
 
             if($data){
                 $token = md5($data['email'].$data['senha']);
+                $_SESSION["usuario"] = $data['usuario'];
                 return $token;
             }
         }
-        
+
+        function email($para_email, $para_nome, $assunto, $html){
+            $mail = new PHPMailer;
+            $mail->IsSMTP();
+
+            $mail->From = "ifba.dropout@gmail.com";
+            $mail->FromName = "IFBA Dropout";
+
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->Username = "ifba.dropout@gmail.com";
+            $mail->Password = "engsoftmAchinele%arning";
+
+            $mail->AddAddress($para_email, $para_nome);
+
+            $mail->Subject = $assunto;
+
+            $mail->AltBody = "Para ver essa mensagem, use um software compatível com HTML!";
+
+            $mail->MsgHTML($html);
+            if($mail->Send()){
+                return "1";
+            }else{
+                return $mail->ErrorInfo;
+            }
+        }
 
         if(isset($_POST['email'])){
             $email = $_POST['email'];
             $token = gerarToken($email);
 
             if($token){
-                echo '<a href="http://localhost/change-password.php?token='.$token.'">http://127.0.0.1/change-password.php?token='.$token.'</a>';
+                $link = 'Link para recuperação de senha: <a href="http://localhost/change-password.php?token='.$token.'">http://127.0.0.1/change-password.php?token='.$token.'</a>';
+                $assunto = 'Redefinição de senha';
+                $usuario = $_SESSION['usuario'];
+                $controle = email($email, $usuario, $assunto, $link);
+
+                if($controle == "1"){
+                    echo "<script>alert('Email de recuperação enviado');</script>";
+                }else{
+                    echo "<script>alert('Ocorreu um erro');</script>";
+                }
             }else{
                 echo "<script>alert('Usuário não encontrado');</script>";
             }
         }
-        
+        session_destroy();
     ?>
         
         
