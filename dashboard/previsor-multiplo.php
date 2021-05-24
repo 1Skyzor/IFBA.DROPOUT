@@ -43,15 +43,15 @@
     endif;
 ?>
 
-<div id = "centro-tabela">
-<div class="modal fade" id="modalPrevisaoMultipla" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-                <iframe id = "tabela-previsao" src = "../tabela-previsao.php"></iframe>
+    <div id = "centro-tabela">
+        <div class="modal fade" id="modalPrevisaoMultipla" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <iframe id = "tabela-previsao" src = "../tabela-previsao.php"></iframe>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<form id="formUsuarios"></div>
 </div>
 
 </body>

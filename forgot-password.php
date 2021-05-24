@@ -16,7 +16,13 @@
 
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="estilos.css">
-        <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">        
+        <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">    
+
+        <script src="jquery/jquery-3.3.1.min.js"></script>    
+        <script src="bootstrap/js/bootstrap.min.js"></script>    
+        <script src="popper/popper.min.js"></script>    
+        
+        <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
         
        <!-- <link rel="stylesheet" type="text/css" href="fuentes/iconic/css/material-design-iconic-font.min.css">-->
         
@@ -96,25 +102,22 @@
                 $assunto = 'Redefinição de senha';
                 $usuario = $_SESSION['usuario'];
                 $controle = email($email, $usuario, $assunto, $link);
-
+                var_dump($_GET);
+                
                 if($controle == "1"){
-                    echo "<script>alert('Email de recuperação enviado');</script>";
+                    echo "<script>Swal.fire({type:'success',title:'Email de recuperação enviado'});</script>";
                 }else{
-                    echo "<script>alert('Ocorreu um erro');</script>";
+                    echo "<script>Swal.fire({type:'error',title:'Ocorreu um erro'});</script>";
                 }
             }else{
-                echo "<script>alert('Usuário não encontrado');</script>";
+                echo "<script>Swal.fire({type:'error',title:'Usuário não encontrado'});</script>";
             }
         }
         session_destroy();
+        
     ?>
         
         
-     <script src="jquery/jquery-3.3.1.min.js"></script>    
-     <script src="bootstrap/js/bootstrap.min.js"></script>    
-     <script src="popper/popper.min.js"></script>    
-        
-     <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>    
-     <script src="codigo.js"></script>    
+ 
     </body>
 </html>
