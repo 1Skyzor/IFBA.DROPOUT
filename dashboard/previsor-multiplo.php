@@ -25,22 +25,25 @@
 <button id="btnPrevisoes" name = "btnPrevisoes" class="btn btn-danger" onclick = gerarCSV_Multiplo()>Previsões</button>
 
 <?php
-    if(isset($_POST['btnPrevisorMultiplo'])):
+    if(isset($_POST['btnPrevisorMultiplo'])){
         $extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
-        if($extensao == "csv"):
+        if($extensao == "csv"){
             $pasta = "../data/";
             $temp = $_FILES['arquivo']['tmp_name'];
             $novo_nome = uniqid().".csv";
 
             $_SESSION['nome_csv'] = $novo_nome;
 
-            if(move_uploaded_file($temp, $pasta.$novo_nome)):
+            if(move_uploaded_file($temp, $pasta.$novo_nome)){
 ?>
         <script> document.getElementById("btnPrevisoes").style.display = "inline"; </script>
 <?php
-            endif;
-        endif;
-    endif;
+            }
+        }else{
+            echo "<b><font color=red> Formato inválido </font></b>";
+        }
+    }
+    unset($_POST['btnPrevisorMultiplo']);
 ?>
 
     <div id = "centro-tabela">
