@@ -49,7 +49,7 @@ require_once "vistas/parte_superior.php"
                                     <th>Email</th>
                                     <th>Tipo</th> 
                                     <th>Status</th> 
-                                    <th>Senha</th>
+                                    <th style="display:none;"  >Senha</th>
                                     <th>Acões</th>
                                     
                                 </tr>
@@ -67,7 +67,7 @@ require_once "vistas/parte_superior.php"
                                     <td><?php echo $dat['email'] ?></td> 
                                     <td><?php echo $dat['tipo'] ?></td>
                                     <td><?php echo $dat['status'] ?></td> 
-                                    <td><?php echo $dat['senha'] ?></td>   
+                                    <td style="display:none;" ><?php echo $dat['senha'] ?></td>   
                                     <td></td>
                                 </tr>
                                 <?php

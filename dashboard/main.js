@@ -6,8 +6,7 @@ $(document).ready(function(){
         "data":null,
         "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btnEditar'>Editar</button><button class='btn btn-danger btnDeletar'>Deletar</button></div></div>"  
        }],
-    
-        
+     
     "language": {
             "lengthMenu": "Número de registros exibidos:_MENU_",
             "zeroRecords": "Nenhum registro encontrado!",
@@ -84,6 +83,7 @@ $(document).on("click", ".btnEditar", function(){
       
     
 });
+ 
 
 //Botão Deletar
 $(document).on("click", ".btnDeletar", function(){    
@@ -122,12 +122,110 @@ $(document).on("click", ".btnDeletar", function(){
       
 });
 
+$.fn.myFunction = function(data_form) { 
+    confirm("Entrou "); 
+    $.ajax({
+        url: "bd/crud.php",
+        type: "POST",
+        dataType: "json",
+        data:data_form,
+        async: true,
+        })
+       .done(function ajaxDone(res){
 
+       
+            console.log(res.usuario);
+            console.log(res.email);
+            console.log(res.senha); 
+            console.log(res.nome); 
+            console.log(res.opcao); 
+            if(res.usuario == "em_uso"){
+
+                Swal.fire({
+                    icon:'warning',
+                    title:'O usuário informado já esta em uso, por favor, tente outro.',
+                });
+                return false;  
+            }else {
+                if(res.email == "em_uso"){
+
+                    Swal.fire({
+                        icon:'warning',
+                        title:'O email informado já esta em uso, por favor, tente outro.',
+                    });
+                 
+                   return false; 
+                }else{
+                    
+                    id = data_form.id;            
+                    nome = data_form.nome;
+                    usuario = data_form.usuario;
+                    email = data_form.email;
+                    tipo = data_form.tipo;            
+                    status = data_form.status;
+                    senha = data_form.senha; 
+                    opcao = data_form.opcao; 
+                    $("#modalCRUD").modal("hide");
+                    if(res.usuario == "atualizado"){
+                    //$('#tabelaUsuarios').DataTable().ajax.reload();
+                    tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status,senha]).draw();
+                    Swal.fire({
+                        icon:'success',
+                        title:'Informações atualizadas com sucesso!',
+                    });
+
+                    }else{
+                    //$('#tabelaUsuarios').DataTable().ajax.reload();
+                    tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status,senha]).draw();
+                    Swal.fire({
+                        icon:'success',
+                        title:'Usuário cadastrado com sucesso!',
+                    });
+
+                     }
+
+                }
+                
+            }
+ 
+        })
+
+        /* $.ajax({
+            url: "bd/crud.php",
+            type: "POST",
+            dataType: "json",
+            data: {nome:nome, usuario:usuario, senha:senha, email:email, tipo:tipo, status:status, id:id, opcao:opcao},
+            success: function (response) {  
+                console.log(response.usuario);
+                id = data[0].id;            
+                nome = data[0].nome;
+                usuario = data[0].usuario;
+                email = data[0].email;
+                tipo = data[0].tipo;            
+                status = data[0].status;
+                senha = data[0].senha;
+
+         
+                if(opcao == 1){tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status]).draw();}
+                else{tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status]).draw();}
+                
+            }        
+        }); */
+                
+    
+   
+
+
+  };
 
 $(document).on("submit", ".formUsuarios", function(e){
     e.preventDefault(); 
     var $form = $(this);
-    var enviarDados = false;
+ 
+   /*  $(document).ready(function(){
+        $(this).myFunction();
+        }); */
+
     cbADM = document.getElementById("cb-adm");
     cbATV = document.getElementById("cb-ativo");
   
@@ -179,6 +277,7 @@ $(document).on("submit", ".formUsuarios", function(e){
         }else{
             var foiAlterado = false;
             var alter = "";
+
             if(opcao == '2' && (nome != data_form.nome || email != data_form.email ||
                  senha != data_form.senha || usuario != data_form.usuario || statusOriginal != data_form.status || tipoOriginal != data_form.tipo) ){
                    var foiAlterado = true;
@@ -192,25 +291,35 @@ $(document).on("submit", ".formUsuarios", function(e){
                  }
             //confirm("FOI ALTERADO "+ foiAlterado);
             if(foiAlterado){
-                
+               
                 Swal.fire({
                     title: 'Tem certeza?',
                     html: 'Realmente deseja alterar o(s) o seguintes campos: '+ alter,
                     icon: 'warning',
                     showCancelButton: true,
-                    cancelButtonColor: '#00a000',
-                    confirmButtonColor: '#d33',
-                    confirmButtonText: 'Cancelar',
-                    cancelButtonText: 'Continuar'
+                    confirmButtonColor: '#00a000',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Continuar',
+                    cancelButtonText: 'Cancelar'
+
                 }).then((result) => {
-                    if (result.value) {
-                       
-                        enviarDados = true; 
-                        return false;                
+                    if (result.isConfirmed){
+                        confirm("OK!"); 
+                         $(document).ready(function(){
+                        $(this).myFunction(data_form);
+                        });
+                        return false; 
+                                   
                     }  
-                }); 
+                });
+               
+
             }else{
-                if (opcao == '1') {enviarDados =  true;}
+                if (opcao == '1') { 
+                    $(document).ready(function(){
+                    $(this).myFunction(data_form);
+                    });
+                }
                 else{
                     Swal.fire({
                         title: 'Nenhuma alteração encontrada',
@@ -223,15 +332,15 @@ $(document).on("submit", ".formUsuarios", function(e){
                         cancelButtonText: 'Sim'
                     }).then((result) => {
                         if (result.value) {
-    
+                            
                             $("#modalCRUD").modal("hide");            
                         }  
                     });  
                 }
 
             }
-         confirm("Enviar "+ enviarDados);
-          if(enviarDados){
+    
+          /* if(enviarDados){
             $.ajax({
                 url: "bd/crud.php",
                 type: "POST",
@@ -322,7 +431,7 @@ $(document).on("submit", ".formUsuarios", function(e){
                         
             
            
-            }
+   /*          } */
 
         }
     }
