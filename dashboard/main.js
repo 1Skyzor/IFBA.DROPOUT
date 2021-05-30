@@ -1,12 +1,12 @@
 $(document).ready(function(){
     tabelaUsuarios = $("#tabelaUsuarios").DataTable({
        "columnDefs":[{
-        "aoColumns": [{"bVisible": false},null,null,null,null],
         "targets": -1,
         "data":null,
         "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btnEditar'>Editar</button><button class='btn btn-danger btnDeletar'>Deletar</button></div></div>"  
        }],
-     
+
+       "order": [[ 0, "desc" ]],
     "language": {
             "lengthMenu": "Número de registros exibidos:_MENU_",
             "zeroRecords": "Nenhum registro encontrado!",
@@ -33,8 +33,21 @@ $("#btnCadastrar").click(function(){
     $("#modalCRUD").modal("show");        
     id=null;
     opcao = '1'; //alta
-});    
     
+}); 
+
+$("#modalAlter").click(function(){
+    $("#formUsuarios").trigger("reset");
+    $(".modal-header").css("background-color", "#1cc88a");
+    $(".modal-header").css("color", "white");
+    $(".modal-header").css("color", "white");
+    $(".modal-title").text("Cadastrar Usuário");            
+    $("#modalCRUD").modal("show");        
+    id=null;
+    opcao = '1'; //alta
+    
+}); 
+
 var fila; //Captura a linha para editar ou deletar o registro
   
 //Botão Editar    
@@ -123,7 +136,7 @@ $(document).on("click", ".btnDeletar", function(){
 });
 
 $.fn.myFunction = function(data_form) { 
-    confirm("Entrou "); 
+    /* confirm("Entrou ");  */
     $.ajax({
         url: "bd/crud.php",
         type: "POST",
@@ -139,6 +152,7 @@ $.fn.myFunction = function(data_form) {
             console.log(res.senha); 
             console.log(res.nome); 
             console.log(res.opcao); 
+            console.log(res.id);
             if(res.usuario == "em_uso"){
 
                 Swal.fire({
@@ -167,7 +181,7 @@ $.fn.myFunction = function(data_form) {
                     opcao = data_form.opcao; 
                     $("#modalCRUD").modal("hide");
                     if(res.usuario == "atualizado"){
-                    //$('#tabelaUsuarios').DataTable().ajax.reload();
+                 
                     tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status,senha]).draw();
                     Swal.fire({
                         icon:'success',
@@ -175,8 +189,13 @@ $.fn.myFunction = function(data_form) {
                     });
 
                     }else{
-                    //$('#tabelaUsuarios').DataTable().ajax.reload();
+                    id = res.id;
                     tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status,senha]).draw();
+                    var table = $('#tabelaUsuarios').DataTable();
+                    
+                    // Esconde a coluna das senhas
+                    table.columns( [6] ).visible( false );
+                   
                     Swal.fire({
                         icon:'success',
                         title:'Usuário cadastrado com sucesso!',
@@ -190,51 +209,16 @@ $.fn.myFunction = function(data_form) {
  
         })
 
-        /* $.ajax({
-            url: "bd/crud.php",
-            type: "POST",
-            dataType: "json",
-            data: {nome:nome, usuario:usuario, senha:senha, email:email, tipo:tipo, status:status, id:id, opcao:opcao},
-            success: function (response) {  
-                console.log(response.usuario);
-                id = data[0].id;            
-                nome = data[0].nome;
-                usuario = data[0].usuario;
-                email = data[0].email;
-                tipo = data[0].tipo;            
-                status = data[0].status;
-                senha = data[0].senha;
-
-         
-                if(opcao == 1){tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status]).draw();}
-                else{tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status]).draw();}
-                
-            }        
-        }); */
-                
-    
-   
-
 
   };
 
 $(document).on("submit", ".formUsuarios", function(e){
     e.preventDefault(); 
     var $form = $(this);
- 
-   /*  $(document).ready(function(){
-        $(this).myFunction();
-        }); */
+
 
     cbADM = document.getElementById("cb-adm");
     cbATV = document.getElementById("cb-ativo");
-  
-    
-   /*  nome = $.trim($("#nome").val());
-    usuario = $.trim($("#usuario").val());
-    senha = $.trim($("#senha").val());  
-    confSenha = $.trim($("#conf-senha").val());
-    email = $.trim($("#email").val()); */
 
     if (cbADM.checked) {
        tipo = 'Admin';
@@ -304,7 +288,7 @@ $(document).on("submit", ".formUsuarios", function(e){
 
                 }).then((result) => {
                     if (result.isConfirmed){
-                        confirm("OK!"); 
+                       /*  confirm("OK!");  */
                          $(document).ready(function(){
                         $(this).myFunction(data_form);
                         });
@@ -340,98 +324,6 @@ $(document).on("submit", ".formUsuarios", function(e){
 
             }
     
-          /* if(enviarDados){
-            $.ajax({
-                url: "bd/crud.php",
-                type: "POST",
-                dataType: "json",
-                data:data_form,
-                async: true,
-                })
-               .done(function ajaxDone(res){
-
-               
-                    console.log(res.usuario);
-                    console.log(res.email);
-                    console.log(res.senha); 
-                    console.log(res.nome); 
-                    console.log(res.opcao); 
-                    if(res.usuario == "em_uso"){
-
-                        Swal.fire({
-                            icon:'warning',
-                            title:'O usuário informado já esta em uso, por favor, tente outro.',
-                        });
-                        return false;  
-                    }else {
-                        if(res.email == "em_uso"){
-
-                            Swal.fire({
-                                icon:'warning',
-                                title:'O email informado já esta em uso, por favor, tente outro.',
-                            });
-                         
-                           return false; 
-                        }else{
-                            
-                            id = data_form.id;            
-                            nome = data_form.nome;
-                            usuario = data_form.usuario;
-                            email = data_form.email;
-                            tipo = data_form.tipo;            
-                            status = data_form.status;
-                            senha = data_form.senha; 
-                            opcao = data_form.opcao; 
-                            $("#modalCRUD").modal("hide");
-                            if(res.usuario == "atualizado"){
-                            //$('#tabelaUsuarios').DataTable().ajax.reload();
-                            tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status,senha]).draw();
-                            Swal.fire({
-                                icon:'success',
-                                title:'Informações atualizadas com sucesso!',
-                            });
-
-                            }else{
-                            //$('#tabelaUsuarios').DataTable().ajax.reload();
-                            tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status,senha]).draw();
-                            Swal.fire({
-                                icon:'success',
-                                title:'Usuário cadastrado com sucesso!',
-                            });
- 
-                             }
-
-                        }
-                        
-                    }
-         
-                })
-
-                /* $.ajax({
-                    url: "bd/crud.php",
-                    type: "POST",
-                    dataType: "json",
-                    data: {nome:nome, usuario:usuario, senha:senha, email:email, tipo:tipo, status:status, id:id, opcao:opcao},
-                    success: function (response) {  
-                        console.log(response.usuario);
-                        id = data[0].id;            
-                        nome = data[0].nome;
-                        usuario = data[0].usuario;
-                        email = data[0].email;
-                        tipo = data[0].tipo;            
-                        status = data[0].status;
-                        senha = data[0].senha;
-    
-                 
-                        if(opcao == 1){tabelaUsuarios.row.add([id,nome,usuario,email,tipo,status]).draw();}
-                        else{tabelaUsuarios.row(fila).data([id,nome,usuario,email,tipo,status]).draw();}
-                        
-                    }        
-                }); */
-                        
-            
-           
-   /*          } */
 
         }
     }

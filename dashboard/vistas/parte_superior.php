@@ -44,9 +44,9 @@ if($_SESSION["s_usuario"] === null){
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="far fa-chart-bar"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Dropout IFBA</div>
             </a>
@@ -56,7 +56,7 @@ if($_SESSION["s_usuario"] === null){
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Início</span></a>
             </li>
@@ -65,9 +65,9 @@ if($_SESSION["s_usuario"] === null){
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+           <!--  <div class="sidebar-heading">
                 Interface
-            </div>
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <?php
@@ -82,11 +82,11 @@ if($_SESSION["s_usuario"] === null){
                 
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
+                        <!-- <h6 class="collapse-header">Gerenciamento de:</h6> -->
                         <a class="collapse-item" href="gerir_users.php">Usuários</a>
-                        <a class="collapse-item" href="cards.html">Alunos</a>
+                        <!-- <a class="collapse-item" href="cards.html">Alunos</a>
                         <a class="collapse-item" href="buttons.html">Cursos</a>
-                        <a class="collapse-item" href="cards.html">Turmas</a>
+                        <a class="collapse-item" href="cards.html">Turmas</a> -->
                     </div>
                 </div>
                
@@ -94,17 +94,19 @@ if($_SESSION["s_usuario"] === null){
             <?php
                 endif;
             ?>
+             <!-- Divider -->
+             <hr class="sidebar-divider">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="far fa-chart-bar"></i>
                     <span>Previsor de evasões</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
                         <a class="collapse-item" href="previsor-unitario.php">Previsor unitário</a>
                         <a class="collapse-item" href="previsor-multiplo.php">Previsor múltiplo</a>
                     </div>
@@ -112,15 +114,15 @@ if($_SESSION["s_usuario"] === null){
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+           <!--  <hr class="sidebar-divider"> -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+         <!--    <div class="sidebar-heading">
                 Addons
             </div>
-
+ -->
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+          <!--   <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -138,21 +140,21 @@ if($_SESSION["s_usuario"] === null){
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+          <!--   <li class="nav-item">
                 <a class="nav-link" href="charts.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+           <!--  <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li>
+            </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -195,15 +197,10 @@ if($_SESSION["s_usuario"] === null){
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Perfil
+                <a class="dropdown-item"   href="#">
+                  <i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400" id= "modalAlter"></i>
+                   Editar Perfil
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configurações
-                </a>
-                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sair
@@ -214,4 +211,7 @@ if($_SESSION["s_usuario"] === null){
           </ul>
 
         </nav>
+
+
+
         <!-- End of Topbar -->

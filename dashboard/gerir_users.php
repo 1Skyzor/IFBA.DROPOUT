@@ -129,6 +129,6 @@ require_once "vistas/parte_superior.php"
     </div>
 
 </div>
-<!--FIN del cont principal-->
+<!--FIM-->
 
 <?php require_once "vistas/parte_inferior.php"?>

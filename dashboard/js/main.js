@@ -31,7 +31,15 @@ $("#btnCadastrar").click(function(){
     id=null;
     opcion = 1; //alta
 });    
-    
+
+$("#btnCadastrar").click(function(){          
+    $(".modal-header").css("background-color", "#1cc88a");
+    $(".modal-header").css("color", "white");
+    $(".modal-title").text("Cadastrar Usuário");   
+    $("#modalCRUD").modal("show");        
+    id=null;
+    opcion = 1; //alta
+});  
 var fila; //capturar a linha para editar ou deletar o registro
 
 //Botão Editar    

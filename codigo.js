@@ -67,7 +67,7 @@ $(document).on("submit", ".formLogin", function(e){
                             }).then((result) => {
                             if(result.value){
                                 //window.location.href = "vistas/pag_inicio.php";
-                                window.location.href = "dashboard/index.php";
+                                window.location.href = "index.php";
                             }
                             })
                         }

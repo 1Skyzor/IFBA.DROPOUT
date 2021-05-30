@@ -13,7 +13,7 @@ session_start();
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="estilos.css">
         <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">        
-        
+      
        <link rel="stylesheet" type="text/css" href="fuentes/iconic/css/material-design-iconic-font.min.css">
         
     </head>
@@ -24,7 +24,6 @@ session_start();
         <div class="wrap-login">
             <form class="formLogin" id="formLogin" action="" method="POST">
                 <span class="login-form-title">LOGIN</span>
-                
                 <div class="wrap-input100" data-validate = "Usuario incorrecto">
                     <input class="input100" type="text" id="usuario" name="usuario" placeholder="Usuário">
                     <span class="focus-efecto"></span>

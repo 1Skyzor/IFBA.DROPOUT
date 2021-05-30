@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $opcao = (isset($_POST['opcao'])) ? $_POST['opcao'] : '';
     $id = (isset($_POST['id'])) ? $_POST['id'] : '';
     $retorno = [];
-    
+    $retorno['id'] = 'ddd';
     switch ($opcao) {
         case 1: //Cadastrar
 
@@ -44,7 +44,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultado = $conexao->prepare($consulta);
             $resultado->execute();
 
-         
+            $consulta = "SELECT id FROM usuarios WHERE usuario ='$usuario' AND senha='$senha'";
+            $resultado = $conexao->prepare($consulta);
+            $resultado->execute();
+            if($resultado->rowCount() >= 1){
+                $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
+    
+                foreach ($data as $row) {
+                    $res_id =   $row['id'];
+                    $retorno['id'] = $res_id;
+                           
+                }
+            }
+
+            
             $retorno['usuario'] = 'cadastrado';
             break;
 
@@ -106,5 +119,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $conexao = NULL;
 }else{
 
-    exit("OPS!");
+    exit("OPS! DÁ O FORA");
 }
