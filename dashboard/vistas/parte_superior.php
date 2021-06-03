@@ -91,12 +91,11 @@ if($_SESSION["s_usuario"] === null){
                 </div>
                
             </li>
-            
-             <!-- Divider -->
-             <hr class="sidebar-divider">
-             <?php
+            <?php
                 endif;
             ?>
+             <!-- Divider -->
+             <hr class="sidebar-divider">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
