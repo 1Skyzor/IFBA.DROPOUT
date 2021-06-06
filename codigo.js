@@ -44,7 +44,7 @@ $(document).on("submit", ".formLogin", function(e){
                  }else{
                   //confirm("TIPO "+res.tipo);
                    
-                    if(res.tipo == "Admin"){
+                    if(res.tipo == "Admin" || res.tipo == "Simples"){
                         Swal.fire({
                             type:'success',
                             title:'Bem-vindo(a) '+res.usuario+'!',
