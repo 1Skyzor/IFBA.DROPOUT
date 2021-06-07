@@ -10,12 +10,6 @@
     <h1>Previsor de evasões</h1>   
     <br><br>
     <form action = "<?php echo $_SERVER['PHP_SELF']; ?>" method = "POST" enctype="multipart/form-data">
-            <label for="cursos" >Selecione o curso:</label>
-            <select name="cursos" id="cursos-multiplo">
-            <option value="integrado">Integrado</option>
-            <option value="subsequente">Subsequente</option>
-            <option value="BSI">BSI</option>        </select>
-    <br><br>
     <label>Selecione o arquivo no formato CSV:</label><br>
     <input type="file" class="btn btn-success" name = "arquivo" data-dismiss="modal"></input>
     <button type="submit" id="btnPrevisorMultiplo" name = "btnPrevisorMultiplo" class="btn btn-success">Enviar</button>
