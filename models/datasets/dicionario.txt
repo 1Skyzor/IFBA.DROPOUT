@@ -1,0 +1,55 @@
+CLASSE:
+
+NO = 0
+YES = 1
+
+PREVISORES:
+
+- Residence_city
+	
+	LOCAL = 1.
+	NEIGHBOR = 2.
+	FOREIGN = 0.
+
+- Civil_status
+	
+	Single = 3.
+	Free Union = 0.
+	Married = 1.
+	Separated = 2.
+
+- State
+
+	LOCAL = 1.
+	NEIGHBOR = 2.
+	FOREIGN = 0.
+
+- Province
+
+	LOCAL = 1.
+	FOREIGN = 0.
+	NEIGHBOR = 2.
+
+- Desired_program
+
+	UNSPECIFIED = 2.
+ 	INFORMATIC ENGINEERING = 1.
+	ELECTRONIC AUTOMATION TECHNOLOGY = 0.
+
+- Father_level
+
+	HIGH SCHOOL = 0.
+	TECHNICAL = 2.
+	UNDERGRADUATE = 4.
+	PRIMARY SCHOOL = 1.
+	TECHNOLOGIST = 3.
+	UNREGISTERED = 5.
+
+- Mother_level
+
+	HIGH SCHOOL = 0.
+	TECHNICAL = 4.
+	UNDERGRADUATE = 2.
+	PRIMARY SCHOOL = 1.
+	TECHNOLOGIST = 3.
+	UNREGISTERED = 5.
