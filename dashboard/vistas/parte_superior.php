@@ -108,8 +108,8 @@ if($_SESSION["s_usuario"] === null){
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="previsor-unitario.php">Previsor unitário</a>
-                        <a class="collapse-item" href="previsor-multiplo.php">Previsor múltiplo</a>
+                        <a class="collapse-item" href="previsor-unitario.php">Previsão simples</a>
+                        <a class="collapse-item" href="previsor-multiplo.php">Previsão multipla</a>
                     </div>
                 </div>
             </li>
