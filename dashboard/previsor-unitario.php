@@ -129,17 +129,17 @@
         
         //teste alert(Residence_city);
 
-            let xs = tf.tensor2d([[Residence_city, Socioeconomic_level, Civil_status, Age, State, Province, Vulnerable_group, Desired_program, Family_income, Father_level, Mother_level, STEM_subjects, H_subjects]]);
+        let xs = tf.tensor2d([[Residence_city, Socioeconomic_level, Civil_status, Age, State, Province, Vulnerable_group, Desired_program, Family_income, Father_level, Mother_level, STEM_subjects, H_subjects]]);
 
-            output = model.predict(xs);
-            const outputData = output.dataSync();
-            prediction = Number(outputData > 0.5);
+        output = model.predict(xs);
+        const outputData = output.dataSync();
+        prediction = Number(outputData > 0.5);
 
-            if(prediction == 0){
-                alert('O aluno NÃO corre risco de evasão!');
-            }else{
-                slert('O aluno CORRE risco de evasão!');
-            }
+        if(prediction == 0){
+            alert('O aluno NÃO corre risco de evasão!');
+        }else{
+            alert('O aluno CORRE risco de evasão!');
+        }
         
     }
 </script>
