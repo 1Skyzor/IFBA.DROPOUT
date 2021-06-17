@@ -21,112 +21,75 @@
                     <div class="form-group">
                         <fieldset id="group1">
                             <label class="col-form-label"><b> Cidade de Residencia </b> </label><br>
-                            <input type="radio" id="LOCAL-C" name="Residence_city" value="1">
-                            <label for="LOCAL-C">Local</label><br>
-                            <input type="radio" id="NEIGHBOUR-C" name="Residence_city" value="2">
-                            <label for="NEIGHBOUR-C">Circunvizinhas</label><br>
-                            <input type="radio" id="FOREIGN-C" name="Residence_city" value="0">
-                            <label for="FOREIGN-C">Estrangeiro</label><br>
+                            <input type="radio" id="LOCAL-C" name="Residence_city" value="1"> Local <br>
+                            <input type="radio" id="NEIGHBOUR-C" name="Residence_city" value="2"> Circunvizinhas <br>
+                            <input type="radio" id="FOREIGN-C" name="Residence_city" value="0"> Estrangeiro <br>
                         </fieldset>
                         
                         <fieldset id="group2">
                             <label class="col-form-label"><b>Estado</b> </label><br>
-                            <input type="radio" id="LOCAL-E" name="State" value="1">
-                            <label for="LOCAL-E">Local</label><br>
-                            <input type="radio" id="NEIGHBOUR-E" name="State" value="2">
-                            <label for="NEIGHBOUR-E">Circunvizinhas</label><br>
-                            <input type="radio" id="FOREIGN-E" name="State" value="0">
-                            <label for="FOREIGN-E">Estrangeiro</label><br>
+                            <input type="radio" id="LOCAL-E" name="State" value="1"> Local <br>
+                            <input type="radio" id="NEIGHBOUR-E" name="State" value="2"> Circunvizinhas <br>
+                            <input type="radio" id="FOREIGN-E" name="State" value="0"> Estrangeiro <br>
                         </fieldset>
 
                         <fieldset id="group3">
                             <label class="col-form-label"><b>Província</b> </label><br>
-                            <input type="radio" id="LOCAL-P" name="Province" value="1">
-                            <label for="LOCAL-P">Local</label><br>
-                            <input type="radio" id="NEIGHBOUR-P" name="Province" value="0">
-                            <label for="NEIGHBOUR-P">Circunvizinhas</label><br>
-                            <input type="radio" id="FOREIGN-P" name="Province" value="2">
-                            <label for="FOREIGN-P">Estrangeiro</label><br>
+                            <input type="radio" id="LOCAL-P" name="Province" value="1"> Local <br>
+                            <input type="radio" id="NEIGHBOUR-P" name="Province" value="0"> Circunvizinhas <br>
+                            <input type="radio" id="FOREIGN-P" name="Province" value="2"> Estrangeiro <br>
                         </fieldset>
 
                         <fieldset id="group4">
                             <label class="col-form-label"><b>Estado Civil</b> </label><br>
-                            <input type="radio" id="Single" name="Civil_status" value="3">
-                            <label for="Single">Solteiro</label><br>
-                            <input type="radio" id="Married" name="Civil_status" value="1">
-                            <label for="Married">Casado</label><br>
-                            <input type="radio" id="Separated" name="Civil_status" value="2">
-                            <label for="Separated">Separado</label><br>
-                            <input type="radio" id="Free union" name="Civil_status" value="0">
-                            <label for="Free union">Relacionamento Aberto</label><br>
+                            <input type="radio" id="Single" name="Civil_status" value="3"> Solteiro <br>
+                            <input type="radio" id="Married" name="Civil_status" value="1"> Casado <br>
+                            <input type="radio" id="Separated" name="Civil_status" value="2"> Separado <br>
+                            <input type="radio" id="Free union" name="Civil_status" value="0"> Relacionamento Aberto <br>
                         </fieldset>
 
                         <fieldset id="group5">
                             <label class="col-form-label"><b>Escolaridade do pai</b></label><br>
-                            <input type="radio" id="PRIMARY SCHOOL-P" name="Father_level" value="1">
-                            <label for="PRIMARY SCHOOL-P">Ensino fundamental</label><br>
-                            <input type="radio" id="HIGH SCHOOL-P" name="Father_level" value="0">
-                            <label for="HIGH SCHOOL-P">Ensino médio</label><br>
-                            <input type="radio" id="TECHNICAL-P" name="Father_level" value="2">
-                            <label for="TECHNICAL-P">Técnico</label><br>
-                            <input type="radio" id="TECHNOLOGIST-P" name="Father_level" value="3">
-                            <label for="TECHNOLOGIST-P">Tecnologo</label><br>
-                            <input type="radio" id="UNDERGRADUATE-P" name="Father_level" value="4">
-                            <label for="UNDERGRADUATE-P">Superior</label><br>
-                            <input type="radio" id="UNREGISTERED-P" name="Father_level" value="5">
-                            <label for="UNREGISTERED-P">Não Registrado</label><br>
+                            <input type="radio" id="PRIMARY SCHOOL-P" name="Father_level" value="1"> Ensino fundamental <br>
+                            <input type="radio" id="HIGH SCHOOL-P" name="Father_level" value="0"> Ensino médio <br>
+                            <input type="radio" id="TECHNICAL-P" name="Father_level" value="2"> Técnico <br>
+                            <input type="radio" id="TECHNOLOGIST-P" name="Father_level" value="3"> Tecnologo <br> 
+                            <input type="radio" id="UNDERGRADUATE-P" name="Father_level" value="4"> Superior <br>
+                            <input type="radio" id="UNREGISTERED-P" name="Father_level" value="5"> Não Registrado <br>
                         </fieldset>
 
                         <fieldset id="group6">
                             <label class="col-form-label"><b>Escolaridade da mãe</b></label><br>
-                            <input type="radio" id="PRIMARY SCHOOL-M" name="Mother_level" value="1">
-                            <label for="PRIMARY SCHOOL-M">Ensino fundamental</label><br>
-                            <input type="radio" id="HIGH SCHOOL-M" name="Mother_level" value="0">
-                            <label for="HIGH SCHOOL-M">Ensino médio</label><br>
-                            <input type="radio" id="TECHNICAL-M" name="Mother_level" value="4">
-                            <label for="TECHNICAL-M">Técnico</label><br>
-                            <input type="radio" id="TECHNOLOGIST-M" name="Mother_level" value="3">
-                            <label for="TECHNOLOGIST-M">Tecnologo</label><br>
-                            <input type="radio" id="UNDERGRADUATE-M" name="Mother_level" value="2">
-                            <label for="UNDERGRADUATE-M">Superior</label><br>
-                            <input type="radio" id="UNREGISTERED-M" name="Mother_level" value="5">
-                            <label for="UNREGISTERED-M">Não Registrado</label><br>
+                            <input type="radio" id="PRIMARY SCHOOL-M" name="Mother_level" value="1"> Ensino fundamental <br>
+                            <input type="radio" id="HIGH SCHOOL-M" name="Mother_level" value="0"> Ensino médio <br>
+                            <input type="radio" id="TECHNICAL-M" name="Mother_level" value="4"> Técnico <br>
+                            <input type="radio" id="TECHNOLOGIST-M" name="Mother_level" value="3"> Tecnologo <br>
+                            <input type="radio" id="UNDERGRADUATE-M" name="Mother_level" value="2"> Superior <br>
+                            <input type="radio" id="UNREGISTERED-M" name="Mother_level" value="5"> Não Registrado <br>
                         </fieldset>
 
                         <fieldset id="group7">
                             <label class="col-form-label"><b>Programa de estudo desejado</b></label><br>
-                            <input type="radio" id="desired-1" name="Desired_program" value="0">
-                            <label for="desired-1">Tecnologia de Automação Elétrica</label><br>
-                            <input type="radio" id="desired-2" name="Desired_program" value="1">
-                            <label for="desired-2">Engenharia de informática</label><br>
-                            <input type="radio" id="desired-3" name="Desired_program" value="2">
-                            <label for="desired-3">Não especificado</label><br>
+                            <input type="radio" id="desired-1" name="Desired_program" value="0"> Tecnologia de Automação Elétrica <br>
+                            <input type="radio" id="desired-2" name="Desired_program" value="1"> Engenharia de informática <br>
+                            <input type="radio" id="desired-3" name="Desired_program" value="2"> Não especificado <br>
                         </fieldset>
 
                         <fieldset id="group8">
                             <label class="col-form-label"><b>Nível socioeconomico</b></label><br>
-                            <input type="radio" id="nivel-1" name="Socioeconomic_level" value="1">
-                            <label for="nivel-1">Nível 1</label><br>
-                            <input type="radio" id="nivel-2" name="Socioeconomic_level" value="2">
-                            <label for="nivel-2">Nível 2</label><br>
-                            <input type="radio" id="nivel-3" name="Socioeconomic_level" value="3">
-                            <label for="nivel-3">Nível 3</label><br>
-                            <input type="radio" id="nivel-4" name="Socioeconomic_level" value="4">
-                            <label for="nivel-4">Nível 4</label><br>
-                            <input type="radio" id="nivel-5" name="Socioeconomic_level" value="5">
-                            <label for="nivel-5">Nível 5</label><br>
-                            <input type="radio" id="nivel-6" name="Socioeconomic_level" value="6">
-                            <label for="nivel-6">Nível 6</label><br>
+                            <input type="radio" id="nivel-1" name="Socioeconomic_level" value="1"> Nível 1 <br> 
+                            <input type="radio" id="nivel-2" name="Socioeconomic_level" value="2"> Nível 2 <br>
+                            <input type="radio" id="nivel-3" name="Socioeconomic_level" value="3"> Nível 3 <br>
+                            <input type="radio" id="nivel-4" name="Socioeconomic_level" value="4"> Nível 4 <br>
+                            <input type="radio" id="nivel-5" name="Socioeconomic_level" value="5"> Nível 5 <br>
+                            <input type="radio" id="nivel-6" name="Socioeconomic_level" value="6"> Nível 6 <br>
                         </fieldset>
 
                         <fieldset id="group9">
                             <label class="col-form-label"><b>Grupo Vulnerável</b></label><br>
-                            <input type="radio" id="vuln-1" name="Vulnerable_group" value="-1">
-                            <label for="vuln-1">Grupo A</label><br>
-                            <input type="radio" id="vuln-2" name="Vulnerable_group" value="1">
-                            <label for="vuln-2">Grupo B</label><br>
-                            <input type="radio" id="vuln-3" name="Vulnerable_group" value="2">
-                            <label for="vuln-3">Grupo C</label><br>
+                            <input type="radio" id="vuln-1" name="Vulnerable_group" value="-1"> Grupo A <br>
+                            <input type="radio" id="vuln-2" name="Vulnerable_group" value="1"> Grupo B <br>
+                            <input type="radio" id="vuln-3" name="Vulnerable_group" value="2"> Grupo C <br>
                         <fieldset>
 
                         <label class="col-form-label"><b>Idade do aluno</b></label><br>
@@ -166,22 +129,18 @@
         
         //teste alert(Residence_city);
 
-        if(Residence_city == undefined || Socioeconomic_level == undefined || Civil_status == undefined || Age == undefined || State == undefined || Province == undefined || Vulnerable_group == undefined || Desired_program == undefined || Family_income == undefined || Father_level == undefined || Mother_level == undefined || STEM_subjects == undefined || H_subjects == undefined){
-            Swal.fire({type:'alert',title:'Preencha todos os dados'});
-        }else{
             let xs = tf.tensor2d([[Residence_city, Socioeconomic_level, Civil_status, Age, State, Province, Vulnerable_group, Desired_program, Family_income, Father_level, Mother_level, STEM_subjects, H_subjects]]);
 
             output = model.predict(xs);
             const outputData = output.dataSync();
             prediction = Number(outputData > 0.5);
 
-        
             if(prediction == 0){
-                Swal.fire({type:'success',title:'O aluno NÃO corre risco de evasão!'});
+                alert('O aluno NÃO corre risco de evasão!');
             }else{
-                Swal.fire({type:'error',title:'O aluno CORRE risco de evasão!'});
+                slert('O aluno CORRE risco de evasão!');
             }
-        }
+        
     }
 </script>
 <!--FIN del cont principal-->
