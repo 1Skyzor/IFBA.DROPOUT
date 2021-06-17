@@ -218,7 +218,7 @@
     Grupo B: Renda familiar < 1,5 salário mínimo, 
         ensino médio integral em escolas públicas
 
-    Grupo C: Não se enquadra nos grupos (-1) e (1).
+    Grupo C: Não se enquadra nos grupos (A) ou (B).
 </pre>
                     </div>
                 </div>
