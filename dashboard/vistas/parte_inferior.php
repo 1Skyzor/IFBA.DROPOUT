@@ -44,6 +44,44 @@
       </div>
     </div>
   </div>
+  <!-- Alterar Dados Modal-->
+  <div class="modal fade" id="modalAlter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <form id="formAltDados" class ="formAltDados" method="POST">    
+                <div class="modal-body">
+                    <div class="form-group">
+                    <label for="nome" class="col-form-label">Nome:</label>
+                    <input type="text" class="form-control" id="nome">
+                    </div>
+                    <div class="form-group">
+                    <label for="email" class="col-form-label">Email:</label>
+                    <input type="email" class="form-control" id="email">
+                    </div> 
+                    <div class="form-group">
+                    <label for="senha" class="col-form-label">Senha:</label>
+                    <input type="password" id="senha" name="senha" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <label for="conf-senha" class="col-form-label">Confirmar Senha:</label>
+                    <input type="password" id="conf-senha" name="conf-senha" class="form-control">
+                    </div>
+                                       
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" name="submit" id="btnSalvar" class="btn btn-success">Salvar</button>
+                </div>
+            </form>    
+            </div>
+        </div>
+    </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -64,6 +102,8 @@
     <script type="text/javascript" src="main.js"></script>  
     <script src="../plugins/sweetalert2/sweetalert2.all.min.js"></script> 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <!--  <script type="text/javascript" src="js/Chart.min.js"></script> -->
+    <script type="text/javascript" src="js/charts.js"></script>
 
     
 

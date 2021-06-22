@@ -259,6 +259,7 @@
             alert('O aluno NÃO corre risco de evasão!');
         }else{
             alert('O aluno CORRE risco de evasão!');
+             
         }
     }
 </script>

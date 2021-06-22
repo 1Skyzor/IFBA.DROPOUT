@@ -36,14 +36,19 @@ $("#btnCadastrar").click(function(){
     
 }); 
 
-$("#modalAlter").click(function(){
-    $("#formUsuarios").trigger("reset");
-    $(".modal-header").css("background-color", "#1cc88a");
+$("#editPerfil").click(function(){
+    $("#formAltDados").trigger("reset");
+    $(".modal-header").css("background-color", "#224abe");
     $(".modal-header").css("color", "white");
     $(".modal-header").css("color", "white");
-    $(".modal-title").text("Cadastrar Usuário");            
-    $("#modalCRUD").modal("show");        
+    $(".modal-title").text("Editar Perfil");            
+    $("#modalAlter").modal("show");        
     id=null;
+    
+    $("#nome").val(testee);
+    $("#senha").val("eee");
+    $("#conf-senha").val("eee");
+    $("#email").val("eee");
     opcao = '1'; //alta
     
 }); 

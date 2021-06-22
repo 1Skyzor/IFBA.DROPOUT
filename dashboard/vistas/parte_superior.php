@@ -33,6 +33,7 @@ if($_SESSION["s_usuario"] === null){
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -198,8 +199,8 @@ if($_SESSION["s_usuario"] === null){
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item"   href="#">
-                  <i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400" id= "modalAlter"></i>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalAlter" id="editPerfil">
+                  <i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400" ></i>
                    Editar Perfil
                 </a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
