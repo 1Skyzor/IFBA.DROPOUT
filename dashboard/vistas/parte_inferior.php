@@ -49,20 +49,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Alterar Senha</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                     </button>
                 </div>
             <form id="formAltDados" class ="formAltDados" method="POST">    
                 <div class="modal-body">
                     <div class="form-group">
-                    <label for="nome" class="col-form-label">Nome:</label>
-                    <input type="text" class="form-control" id="nome">
+                    <label for="senha" class="col-form-label">Senha:</label>
+                    <input type="password" id="senhaAtual" name="senhaAtual" class="form-control">
                     </div>
-                    <div class="form-group">
-                    <label for="email" class="col-form-label">Email:</label>
-                    <input type="email" class="form-control" id="email">
-                    </div> 
                     <div class="form-group">
                     <label for="senha" class="col-form-label">Senha:</label>
                     <input type="password" id="senha" name="senha" class="form-control">

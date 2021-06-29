@@ -41,14 +41,10 @@ $("#editPerfil").click(function(){
     $(".modal-header").css("background-color", "#224abe");
     $(".modal-header").css("color", "white");
     $(".modal-header").css("color", "white");
-    $(".modal-title").text("Editar Perfil");            
+    $(".modal-title").text("Alterar Senha");            
     $("#modalAlter").modal("show");        
     id=null;
-    
-    $("#nome").val(testee);
-    $("#senha").val("eee");
-    $("#conf-senha").val("eee");
-    $("#email").val("eee");
+
     opcao = '1'; //alta
     
 }); 
