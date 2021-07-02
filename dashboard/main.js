@@ -36,7 +36,7 @@ $("#btnCadastrar").click(function(){
     
 }); 
 
-$("#editPerfil").click(function(){
+$("#editSenha").click(function(){
     $("#formAltDados").trigger("reset");
     $(".modal-header").css("background-color", "#224abe");
     $(".modal-header").css("color", "white");
@@ -44,8 +44,7 @@ $("#editPerfil").click(function(){
     $(".modal-title").text("Alterar Senha");            
     $("#modalAlter").modal("show");        
     id=null;
-
-    opcao = '1'; //alta
+    opcao = '4'; //alta
     
 }); 
 
@@ -213,6 +212,7 @@ $.fn.myFunction = function(data_form) {
 
   };
 
+// Salvando dados
 $(document).on("submit", ".formUsuarios", function(e){
     e.preventDefault(); 
     var $form = $(this);
@@ -330,5 +330,80 @@ $(document).on("submit", ".formUsuarios", function(e){
     }
 }); 
  
+// Alterando a senha
+$(document).on("submit", ".formAltDados", function(e){
+    e.preventDefault(); 
+    var $form = $(this);
+
+    confSenha = $.trim($("#conf-senha").val());
+    
+
+    var data_form = { 
+        opcao:opcao,
+        senha: $.trim($("#senha").val()),
+        senhaAtual:  $.trim($("#senhaAtual").val())
+    } 
+    if(data_form.senhaAtual.length == "" || data_form.senha == "" || confSenha == ""){
+        Swal.fire({
+            icon:'warning',
+            title:'Todos campos devem ser preenchidos, tente novamente.',
+        });
+        return false; 
+    }else{
+        if(data_form.senha != confSenha){
+            Swal.fire({
+                icon:'warning',
+                title:'A confirmação de senha não confere, tente novamente.',
+            });
+            return false; 
+        }else{
+              
+                Swal.fire({
+                    title: 'Tem certeza?',
+                    html: 'Realmente deseja alterar sua senha?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#00a000',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Continuar',
+                    cancelButtonText: 'Cancelar'
+
+                }).then((result) => {
+                    if (result.isConfirmed){
+                        $.ajax({
+                            url: "bd/crud.php",
+                            type: "POST",
+                            dataType: "json",
+                            data:data_form,
+                            async: true,
+                            })
+                           .done(function ajaxDone(res){
+
+                            console.log(res.senha); 
+                            if(res.senha == "nao_confere"){
+                                Swal.fire({
+                                    icon:'warning',
+                                    title:'A senha atual informada não confere, por favor, tente novamente.',
+                                });
+                                return false;
+
+                            }else{
+
+                                Swal.fire({
+                                    icon:'success',
+                                    title:'Senha atualizada com sucesso!',
+                                });
+
+                                $("#modalAlter").modal("hide");
+                            }
+
+                           })	
+                        
+                    }  
+                });
+               
+        }
+    }
+}); 
     
 });

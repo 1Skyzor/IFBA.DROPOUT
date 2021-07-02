@@ -1,10 +1,18 @@
 <?php
+session_start();
 include_once '../bd/conexao.php';
 include_once 'conexao.php';
+//usuario atual
+$usuarioAtual = (isset($_SESSION["s_usuario"])) ? $_SESSION["s_usuario"] : '';
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $objeto = new Conexao();
     $conexao = $objeto->Conectar();
     // Recebendo os dados enviados via POST do JS
+    
+   
+    //senha atual
+    $senhaAtual = (isset($_POST['senhaAtual'])) ? $_POST['senhaAtual'] : '';
 
     $nome = (isset($_POST['nome'])) ? $_POST['nome'] : '';
     $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
@@ -17,6 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = (isset($_POST['id'])) ? $_POST['id'] : '';
     $retorno = [];
     $retorno['id'] = 'ddd';
+
     switch ($opcao) {
         case 1: //Cadastrar
 
@@ -113,11 +122,34 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultado->execute();
             $retorno['usuario'] = 'deletado';
             break;
+
+        case 4: //Altualizar senha
+            $consulta = "SELECT * FROM usuarios WHERE usuario='$usuarioAtual' ";
+            $resultado = $conexao->prepare($consulta);
+            $resultado->execute();
+            if($resultado->rowCount() >= 1){
+                $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
+    
+                foreach ($data as $row) {
+                    $res_senha =  $row['senha'];          
+                }
+            }
+            if($res_senha != $senhaAtual){
+                
+                    $retorno['senha'] = 'nao_confere';
+                    break;   
+            }
+
+            $consulta = "UPDATE usuarios SET senha = '$senha' WHERE usuario='$usuarioAtual' ";    
+            $resultado = $conexao->prepare($consulta);
+            $resultado->execute();
+            $retorno['senha'] = 'atualizada';
+            break;
     }
 
     echo json_encode($retorno); //Envia o array final em formato json para JS
     $conexao = NULL;
 }else{
-
-    exit("OPS! DÁ O FORA");
+    echo $usuarioAtual;
+    exit("OPS! DÁ O FORA ");
 }

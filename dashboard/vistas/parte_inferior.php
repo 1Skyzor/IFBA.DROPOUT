@@ -56,11 +56,11 @@
             <form id="formAltDados" class ="formAltDados" method="POST">    
                 <div class="modal-body">
                     <div class="form-group">
-                    <label for="senha" class="col-form-label">Senha:</label>
+                    <label for="senhaAtual" class="col-form-label">Senha Atual:</label>
                     <input type="password" id="senhaAtual" name="senhaAtual" class="form-control">
                     </div>
                     <div class="form-group">
-                    <label for="senha" class="col-form-label">Senha:</label>
+                    <label for="senha" class="col-form-label">Nova Senha:</label>
                     <input type="password" id="senha" name="senha" class="form-control">
                     </div>
                     <div class="form-group">

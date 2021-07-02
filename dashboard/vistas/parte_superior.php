@@ -199,7 +199,7 @@ if($_SESSION["s_usuario"] === null){
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalAlter" id="editPerfil">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalAlter" id="editSenha">
                   <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400" ></i>
                    Alterar Senha
                 </a>
