@@ -11,12 +11,6 @@ PREVISORES:
 	NEIGHBOR = 2.
 	FOREIGN = 0.
 
-- Civil_status
-	
-	Single = 3.
-	Free Union = 0.
-	Married = 1.
-	Separated = 2.
 
 - State
 
@@ -30,11 +24,12 @@ PREVISORES:
 	FOREIGN = 0.
 	NEIGHBOR = 2.
 
-- Desired_program
-
-	UNSPECIFIED = 2.
- 	INFORMATIC ENGINEERING = 1.
-	ELECTRONIC AUTOMATION TECHNOLOGY = 0.
+- Civil_status
+	
+	Single = 3.
+	Free Union = 0.
+	Married = 1.
+	Separated = 2.
 
 - Father_level
 
@@ -53,3 +48,11 @@ PREVISORES:
 	PRIMARY SCHOOL = 1.
 	TECHNOLOGIST = 3.
 	UNREGISTERED = 5.
+
+- Desired_program
+
+	UNSPECIFIED = 2.
+ 	INFORMATIC ENGINEERING = 1.
+	ELECTRONIC AUTOMATION TECHNOLOGY = 0.
+
+
