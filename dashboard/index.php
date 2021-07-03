@@ -17,15 +17,82 @@
     <body>
         <br><br>
         <h4> Gráficos indicadores de evasão escolar </h4>
-        <div class="plot" id="plot1"></div>
+        <!-- <div class="plot" id="plot1"></div>
         <div class="plot" id="plot2"></div>
         <div class="plot" id="plot3"></div>
         <div class="plot" id="plot4"></div>
         <div class="plot" id="plot5"></div>
-        <div class="plot" id="plot6"></div>
+        <div class="plot" id="plot6"></div> -->
         <div class="plot" id="plot7"></div>
         <div class="plot" id="plot8"></div>
     </body>
+
+    <div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card mt-6">
+						<div class="card-header">Pie Chart</div>
+						<div class="card-body">
+							<div class="chart-container pie-chart">
+							<div class="plot" id="plot1"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card mt-6">
+						<div class="card-header">Doughnut Chart</div>
+						<div class="card-body">
+							<div class="chart-container pie-chart">
+							<div class="plot" id="plot2"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card mt-4 mb-6">
+						<div class="card-header">Nível Socioeconômico</div>
+						<div class="card-body">
+							<div class="chart-container pie-chart">
+							<div class="plot" id="plot3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card mt-4 mb-6">
+						<div class="card-header">Nível Socioeconômico</div>
+						<div class="card-body">
+							<div class="chart-container pie-chart">
+              <div class="plot" id="plot4"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card mt-4 mb-6">
+						<div class="card-header">Nível Socioeconômico</div>
+						<div class="card-body">
+							<div class="chart-container pie-chart">
+              <div class="plot" id="plot5"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card mt-4 mb-6">
+						<div class="card-header">Nível Socioeconômico</div>
+						<div class="card-body">
+							<div class="chart-container pie-chart">
+              <div class="plot" id="plot6"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+       
+        
+			</div>
+		</div>
  <?php
 define('PROJECT_ROOT_PATH', __DIR__);
 
