@@ -31,7 +31,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card mt-6">
-						<div class="card-header">Pie Chart</div>
+						<div class="card-header">Evadidos x Não Evadidos</div>
 						<div class="card-body">
 							<div class="chart-container pie-chart">
 							<div class="plot" id="plot1"></div>
@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="card mt-6">
-						<div class="card-header">Doughnut Chart</div>
+						<div class="card-header">Cidade de Residência</div>
 						<div class="card-body">
 							<div class="chart-container pie-chart">
 							<div class="plot" id="plot2"></div>
@@ -51,7 +51,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="card mt-4 mb-6">
-						<div class="card-header">Nível Socioeconômico</div>
+						<div class="card-header">Nível de Escolaridade do Pai</div>
 						<div class="card-body">
 							<div class="chart-container pie-chart">
 							<div class="plot" id="plot3"></div>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="card mt-4 mb-6">
-						<div class="card-header">Nível Socioeconômico</div>
+						<div class="card-header">Média em Exatas</div>
 						<div class="card-body">
 							<div class="chart-container pie-chart">
               <div class="plot" id="plot4"></div>
@@ -81,7 +81,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="card mt-4 mb-6">
-						<div class="card-header">Nível Socioeconômico</div>
+						<div class="card-header">Grupo Vulnerável</div>
 						<div class="card-body">
 							<div class="chart-container pie-chart">
               <div class="plot" id="plot6"></div>
