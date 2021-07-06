@@ -22,7 +22,7 @@
 <body>
 <div class="container">
     <h1>Previsor de evasões</h1>   
-            <form id="formPrevisorUnitario">    
+            <form id="formPrevisorUnitario" class="formPrevisorUnitario">    
                 <div class="modal-body">
                     <div class="form-group">
                         <fieldset id="group1">
@@ -226,12 +226,14 @@
 </div>
 </body>
 <script>
+
     function nivel(){
         $("#modalNivel").modal("show"); 
     }
     function grupo(){
         $("#modalGrupo").modal("show"); 
     }
+ 
     function prever(){
         let Residence_city, Socioeconomic_level, Civil_status, Age, State, Province, Vulnerable_group, Desired_program, Family_income, Father_level, Mother_level, STEM_subjects, H_subjects;
         
@@ -256,12 +258,33 @@
         prediction = Number(outputData > 0.5);
 
         if(prediction == 0){
-            alert('O aluno NÃO corre risco de evasão!');
+            //alert('O aluno NÃO corre risco de evasão!');
+            $(document).on('submit', '.formPrevisorUnitario' , function(e) { 
+            e.preventDefault();
+            Swal.fire({
+                icon:'info',
+                title:'O aluno NÃO corre risco de evasão!',
+            });
+                 
+                 return false;
+            });
         }else{
-            alert('O aluno CORRE risco de evasão!');
-             
+            //alert('O aluno CORRE risco de evasão!');
+            $(document).on('submit', '.formPrevisorUnitario' , function(e) { 
+            e.preventDefault();
+            Swal.fire({
+                icon:'warning',
+                title:'O aluno CORRE risco de evasão!',
+            });
+                 
+                 return false;
+            });
+    
         }
+
+        document.getElementById("formPrevisorUnitario").reset();
     }
+
 </script>
 <!--FIN del cont principal-->
 
